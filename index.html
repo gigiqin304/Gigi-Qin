@@ -1,481 +1,865 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秦翠孜 Gigi | 個人作品集 Portfolio</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #f7f6f2;
-            --card-bg: #ffffff;
-            --text-main: #2b2b2b;
-            --text-muted: #666666;
-            --accent-pink: #e88d9d;
-            --accent-blue: #7ca5b8;
-            --shadow: 0 10px 25px rgba(0,0,0,0.05);
-            --polaroid-shadow: 0 12px 20px rgba(0,0,0,0.08);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gigi Qin | Portfolio 作品集</title>
+  <!-- Google Fonts: 質感手寫與無襯線體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ------------------------------------
+       莫蘭迪低飽和色系 & 復古剪貼簿變數 
+    ------------------------------------ */
+    :root {
+      --bg-color: #f7f5f0;        /* 暖調灰米白背景 */
+      --card-bg: #ffffff;        /* 紙張卡片白 */
+      --primary: #4a5d6e;         /* 莫蘭迪灰藍 */
+      --accent: #d98a6c;          /* 暖橘/復古膠帶色 */
+      --text-dark: #2b2b2b;       /* 深灰墨黑字 */
+      --text-muted: #70757a;      /* 柔和灰字 */
+      --border-color: #e2ded4;    /* 邊框淡灰 */
+      --font-hand: 'Caveat', cursive; /* 復古手寫體 */
+      --font-main: 'Noto Sans TC', sans-serif;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.7;
-            padding: 20px;
-        }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px 10px;
-        }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
 
-        /* Header / Hero Section */
-        header {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            border: 1px solid #eaeaea;
-        }
+    /* ------------------------------------
+       HERO / ABOUT ME（拍立得拼貼區）
+    ------------------------------------ */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-color);
+      position: relative;
+      margin-bottom: 50px;
+    }
 
-        header h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
+    .tape-top {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.5deg);
+      width: 140px;
+      height: 28px;
+      background: rgba(217, 138, 108, 0.4);
+      backdrop-filter: blur(2px);
+      border: 1px dashed rgba(255,255,255,0.6);
+    }
 
-        header .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+    .polaroid-frame {
+      background: #fff;
+      padding: 15px 15px 45px 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+      max-width: 280px;
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid #efebe4;
+      text-align: center;
+      position: relative;
+    }
 
-        .tags {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
+    .polaroid-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
 
-        .tag {
-            background: #f0ede6;
-            color: #555;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.88rem;
-        }
+    .polaroid-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      filter: contrast(0.95) saturate(1.05);
+    }
 
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    .polaroid-caption {
+      font-family: var(--font-hand);
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-top: 10px;
+      display: block;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 22px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
+    .about-content {
+      flex: 1;
+      min-width: 300px;
+    }
 
-        .btn-primary {
-            background-color: var(--text-main);
-            color: #fff;
-        }
+    .about-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
 
-        .btn-primary:hover {
-            opacity: 0.85;
-            transform: translateY(-2px);
-        }
+    .about-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
 
-        .btn-secondary {
-            background-color: #f0ede6;
-            color: var(--text-main);
-        }
+    .about-title {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
 
-        .btn-secondary:hover {
-            background-color: #e2ded5;
-        }
+    .about-school {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
 
-        /* Section Global */
-        section {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            border: 1px solid #eaeaea;
-        }
+    .about-desc {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
 
-        section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            position: relative;
-            display: inline-block;
-            font-weight: 700;
-        }
+    .contact-badge {
+      display: inline-flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      background: #f4f1ea;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      color: var(--primary);
+    }
 
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-pink);
-            border-radius: 2px;
-        }
+    /* ------------------------------------
+       SKILLS & EXPERIENCE（關鍵詞標籤化）
+    ------------------------------------ */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
 
-        /* About Me */
-        .about-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 25px;
-        }
+    .section-card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
 
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-        }
+    .section-title-hand {
+      font-family: var(--font-hand);
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
 
-        .skill-group {
-            margin-top: 15px;
-        }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .skill-group h4 {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
 
-        .skill-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+    .tag {
+      background: #f0f3f5;
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1px solid #e1e7ec;
+    }
 
-        .badge {
-            border: 1px solid #ddd;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            background: #fafafa;
-        }
+    .tag.accent {
+      background: #fdf2ed;
+      color: var(--accent);
+      border-color: #f7ded3;
+    }
 
-        /* Experience Timeline */
-        .timeline-item {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 2px solid #e2ded5;
-            position: relative;
-        }
+    .exp-item {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed var(--border-color);
+    }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            background-color: var(--accent-pink);
-            border-radius: 50%;
-        }
+    .exp-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-        }
+    .exp-role {
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 1rem;
+    }
 
-        .company {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
+    .exp-company {
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
 
-        .role {
-            color: var(--accent-blue);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
+    .exp-highlights {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      list-style-type: square;
+      padding-left: 18px;
+    }
 
-        .date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+    /* ------------------------------------
+       SOCIAL MEDIA 自媒體亮點
+    ------------------------------------ */
+    .social-banner {
+      background: linear-gradient(135deg, #eef3f6 0%, #f7f5f0 100%);
+      border: 1px solid #dbe3e8;
+      border-radius: 16px;
+      padding: 25px 30px;
+      margin-bottom: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-        .timeline-body {
-            margin-top: 8px;
-            font-size: 0.95rem;
-            color: #444;
-        }
+    .social-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-        .timeline-body ul {
-            padding-left: 18px;
-        }
+    .social-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-        .timeline-body li {
-            margin-bottom: 5px;
-        }
+    .social-stats {
+      display: flex;
+      gap: 25px;
+    }
 
-        /* Portfolio Grid (Polaroid Style) */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+    .stat-num {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1.1;
+    }
 
-        .polaroid-card {
-            background: #fff;
-            padding: 15px 15px 20px 15px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            box-shadow: var(--polaroid-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
-        .polaroid-card:hover {
-            transform: translateY(-8px) rotate(1deg);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.12);
-        }
+    /* ------------------------------------
+       WORKS SECTION & TAB FILTER
+    ------------------------------------ */
+    .works-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-        .polaroid-img {
-            width: 100%;
-            height: 200px;
-            background-color: #eee;
-            border-radius: 4px;
-            object-fit: cover;
-            margin-bottom: 12px;
-        }
+    .tab-menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
 
-        .polaroid-title {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 5px;
-        }
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: var(--font-main);
+    }
 
-        .polaroid-desc {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(74, 93, 110, 0.2);
+    }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-    </style>
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .work-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+    }
+
+    .work-img-wrapper {
+      height: 200px;
+      overflow: hidden;
+      background: #eef1f3;
+      position: relative;
+    }
+
+    .work-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .work-card:hover .work-img {
+      transform: scale(1.05);
+    }
+
+    .work-category-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.9);
+      color: var(--primary);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+    }
+
+    .work-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .work-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .work-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+
+    .work-link-hint {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ------------------------------------
+       MODAL 彈窗展演區
+    ------------------------------------ */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px; right: 20px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .modal-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .modal-text {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      white-space: pre-line;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 25px; }
+      .polaroid-frame { max-width: 100%; }
+      .social-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
 
-    <!-- Header Section -->
-    <header>
-        <h1>秦翠孜 Gigi</h1>
-        <div class="subtitle">湖南大學 廣告學 | 品牌行銷與整合傳播專員</div>
-        
-        <div class="tags">
-            <span class="tag">🇭🇰 香港永久居民</span>
-            <span class="tag">💡 藍色光標 & 華寶新能源實習</span>
-            <span class="tag">🔥 120萬+ 爆款自媒體內容</span>
-            <span class="tag">🎯 整合行銷 (IMC)</span>
-        </div>
+    <!-- HERO / ABOUT ME 個人簡介 -->
+    <header class="hero">
+      <div class="tape-top"></div>
+      
+      <div class="polaroid-frame">
+        <img src="a10e7d709b82cbcb0f7d88151d46cb86.jpg" alt="秦翠孜 Gigi" class="polaroid-img">
+        <span class="polaroid-caption">Gigi Qin ♡</span>
+      </div>
 
-        <div class="contact-buttons">
-            <a href="mailto:2921837251@qq.com" class="btn btn-primary">✉️ 電子郵件聯絡</a>
-            <a href="tel:15812567773" class="btn btn-secondary">📞 15812567773</a>
+      <div class="about-content">
+        <div class="about-header">
+          <h1 class="about-name">秦翠孜</h1>
+          <span class="about-title">Gigi Qin</span>
         </div>
+        <p class="about-school">📍 湖南大學 廣告學專業 ｜ 社交媒體運營 / 營銷專員</p>
+        <p class="about-desc">
+          您好！我是 Gigi。具備系統化的營銷策劃、品牌傳播與內容運營能力，對用戶需求與市場趨勢有敏銳洞察力。性格「可 i 可 e」，工作嚴謹負責，具備極強的團隊協作與跨領域適應力。平時熱愛攝影與運動，敢於探索並將生活靈感與視覺美學融入品牌企劃中。
+        </p>
+        <div class="contact-badge">
+          <span>📧 gigiqin304@gmail.com</span>
+          <span>📞 +852 63029777</span>
+          <span>🗣️ 普通話 / 粵語 / 英文</span>
+        </div>
+      </div>
     </header>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>關於我 About Me</h2>
-        <div class="about-content">
+    <!-- SKILLS & EXPERIENCE -->
+    <div class="grid-2">
+      <div class="section-card">
+        <div class="section-title-hand">My Skillset</div>
+        <h2 class="section-title">✨ 核心技能與工具</h2>
+        
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px;">專業能力</p>
+        <div class="tag-container">
+          <span class="tag accent">整合行銷企劃</span>
+          <span class="tag accent">雇主品牌運營</span>
+          <span class="tag accent">自媒體全盤運營</span>
+          <span class="tag accent">活動與現場攝影</span>
+        </div>
+
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px; margin-top:15px;">軟件與工具</p>
+        <div class="tag-container">
+          <span class="tag">Photoshop</span>
+          <span class="tag">Canva</span>
+          <span class="tag">CapCut</span>
+          <span class="tag">秀米 / 135</span>
+          <span class="tag">Excel / PPT</span>
+          <span class="tag">CET-6</span>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title-hand">Experience</div>
+        <h2 class="section-title">💼 實習與組織經歷</h2>
+
+        <div class="exp-item">
+          <div class="exp-role">雇主品牌運營實習生</div>
+          <div class="exp-company">華寶新能源股份有限公司 (2025.09 - 2026.02)</div>
+          <ul class="exp-highlights">
+            <li>打造「公眾號+小紅書+脈脈」矩陣，產出 20+ 原創推文</li>
+            <li>單篇平均閱讀提升 40%，多渠道累計漲粉 5000+</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">數位營銷實習生</div>
+          <div class="exp-company">藍色光標數據科技 (2025.07 - 2025.08)</div>
+          <ul class="exp-highlights">
+            <li>策劃 3 場整合營銷活動，助力全域曝光提升 30%</li>
+            <li>發佈 5 篇權威新聞稿，輿情熱點推動討論量增 50%</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">宣傳部部長 (從0到1搭建公眾號)</div>
+          <div class="exp-company">湖南高校香港學生聯合會 (2023.09 - 至今)</div>
+          <ul class="exp-highlights">
+            <li>主導搭建「湘港聯」官方帳號，累計用戶 1000+，單篇最高閱讀 2000+</li>
+            <li>統籌 10 場跨校文化活動（覆蓋 1000+ 人），負責活動現場攝影與後續報導</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="social-banner">
+      <div class="social-info">
+        <div class="social-avatar" style="background:#ddd; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">🐰</div>
+        <div>
+          <h3 style="font-size:1.1rem; color:var(--primary);">小紅書 IP：玉米小滋</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">小紅書號：277128653 ｜ 圖文分享、生活種草、美學攝影</p>
+        </div>
+      </div>
+      <div class="social-stats">
+        <div>
+          <span class="stat-num">6,600+</span>
+          <span class="stat-label">獲贊與收藏</span>
+        </div>
+        <div>
+          <span class="stat-num">1.6萬+</span>
+          <span class="stat-label">單篇最高瀏覽</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKS SECTION & TAB FILTER -->
+    <section>
+      <div class="works-header">
+        <div class="section-title-hand">Portfolio</div>
+        <h2 class="section-title" style="justify-content:center;">📂 作品集展示</h2>
+      </div>
+
+      <!-- TAB 分類按鈕 -->
+      <div class="tab-menu">
+        <button class="tab-btn active" onclick="filterWorks('all')">全部作品</button>
+        <button class="tab-btn" onclick="filterWorks('media')">公眾號運營</button>
+        <button class="tab-btn" onclick="filterWorks('strategy')">策劃案類</button>
+        <button class="tab-btn" onclick="filterWorks('copywriter')">文案與新聞稿</button>
+        <button class="tab-btn" onclick="filterWorks('photography')">📷 攝影作品</button>
+      </div>
+
+      <!-- 作品網格卡片 -->
+      <div class="works-grid">
+
+        <!-- 攝影作品 1 -->
+        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：航天知識專題講座', '拍攝視角重點：\n捕捉講者專注神態與後方 PPT 核心主題，畫面結構嚴謹，適合用於官方新聞稿與活動回顧推文。', 'image_497784.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">活動紀實攝影</span>
+            <img src="image_497784.jpg" class="work-img" alt="航天知識講座">
+          </div>
+          <div class="work-body">
             <div>
-                <p>你好！我是秦翠孜（Gigi），畢業於湖南大學廣告學專業。我具備系統化的營銷策劃、品牌傳播與內容運營能力，對用戶需求與市場趨勢有敏銳的洞察力。</p>
-                <p style="margin-top: 10px;">性格「可 i 可 e」，工作嚴謹負責且具備極強的團隊協作力與跨領域適應力。平時熱愛拍照、手作與運動，敢於探索並將生活靈感融入品牌企劃中。</p>
+              <h3 class="work-title">活動紀實：航天知識專題講座</h3>
+              <p class="work-desc">精準抓拍主講人專注神情與背景核心視覺，傳達權威與學術氛圍。</p>
             </div>
+            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
+          </div>
+        </div>
+
+        <!-- 攝影作品 2 -->
+        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：草坪分享會互動瞬間', '拍攝視角重點：\n自然光線下捕捉學生認真聆聽與舉手互動的生動瞬間，充滿青春校園氛圍。', 'image_4977a7.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">活動紀實攝影</span>
+            <img src="image_4977a7.jpg" class="work-img" alt="草坪分享會">
+          </div>
+          <div class="work-body">
             <div>
-                <div class="skill-group">
-                    <h4>核心技能</h4>
-                    <div class="skill-badges">
-                        <span class="badge">整合行銷企劃</span>
-                        <span class="badge">雇主品牌運營</span>
-                        <span class="badge">自媒體全盤運營</span>
-                        <span class="badge">新聞稿撰寫</span>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h4>軟體與工具</h4>
-                    <div class="skill-badges">
-                        <span class="badge">Photoshop</span>
-                        <span class="badge">Canva</span>
-                        <span class="badge">秀米 / 135</span>
-                        <span class="badge">Excel / PPT</span>
-                        <span class="badge">CET-6</span>
-                    </div>
-                </div>
+              <h3 class="work-title">活動紀實：草坪分享會互動瞬間</h3>
+              <p class="work-desc">利用自然光與全景構圖，記錄戶外分享會的熱烈互動與溫馨氛圍。</p>
             </div>
+            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
+          </div>
         </div>
+
+        <!-- 攝影作品 3 -->
+        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：趣味競技破冰遊戲', '拍攝視角重點：\n高速快門捕捉動態瞬間與參與者的投入表情，展現社團活動的活力與樂趣。', 'image_4977e6.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">活動紀實攝影</span>
+            <img src="image_4977e6.jpg" class="work-img" alt="趣味競技遊戲">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">活動紀實：趣味競技破冰遊戲</h3>
+              <p class="work-desc">定格動態遊戲競技瞬間，捕捉 participants 的專注與歡樂情緒。</p>
+            </div>
+            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
+          </div>
+        </div>
+
+        <!-- 攝影作品 4 -->
+        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：草坪大合影與文創紀念', '拍攝視角重點：\n層次豐富的人像群像拍攝，展現團體凝聚力與活動文創禮品的宣傳效益。', 'image_497803.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">活動紀實攝影</span>
+            <img src="image_497803.jpg" class="work-img" alt="草坪大合影">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">活動紀實：草坪大合影與文創紀念</h3>
+              <p class="work-desc">前景與中景的錯落構圖，定格青春合影與活動周邊禮品的留念 moment。</p>
+            </div>
+            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
+          </div>
+        </div>
+
+        <!-- 攝影作品 5 (日常) -->
+        <div class="work-card" data-category="photography" onclick="openModal('日常攝影：城市天際線與現代建築三部曲', '視覺視角：\n三段式縱向構圖，對比歷史復古建築、現代幾何結構線條與央視大樓夜景天際線，展現強烈的都市空間張力。', 'image_497b25.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">日常視覺攝影</span>
+            <img src="image_497b25.jpg" class="work-img" alt="城市天際線">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">日常攝影：城市線條與現代地標</h3>
+              <p class="work-desc">捕捉現代建築幾何幾何美感、黃昏與夜間都市地標的光影變化。</p>
+            </div>
+            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
+          </div>
+        </div>
+
+        <!-- 攝影作品 6 (日常) -->
+        <div class="work-card" data-category="photography" onclick="openModal('日常攝影：古典建築與四季禪意三部曲', '視覺視角：\n聚焦紅牆綠意、金頂夜景與古建院落落花，感受古典建築的寧靜、季節流轉與空間美學。', 'image_497b45.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">日常視覺攝影</span>
+            <img src="image_497b45.jpg" class="work-img" alt="古典建築與四季">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">日常攝影：古建意境與光影詩意</h3>
+              <p class="work-desc">透過紅牆、金頂與院落光影，表達古典空間與自然的靜謐審美。</p>
+            </div>
+            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
+          </div>
+        </div>
+
+        <!-- 公眾號 1 -->
+        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/UVpHyNLn21lWf-w69gNCwA', '_blank')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">公眾號運營</span>
+            <img src="https://via.placeholder.com/400x250/4a5d6e/ffffff?text=%E6%B9%9B%E6%B8%AF%E8%81%AF+%E8%93%AE%E5%BB%BA" class="work-img" alt="湘港聯">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">湖南高校香港學生聯合會（湘港聯）</h3>
+              <p class="work-desc">從 0 到 1 搭建官方帳號，負責排版/轉載/審核/發佈。單篇最高閱讀 2000+，累積用戶 1000+。</p>
+            </div>
+            <span class="work-link-hint">開啟原文章連結 🔗</span>
+          </div>
+        </div>
+
+        <!-- 公眾號 2 -->
+        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/uZxN_5ML1lyuBbF9bFbdCw', '_blank')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">校級公眾號</span>
+            <img src="https://via.placeholder.com/400x250/d98a6c/ffffff?text=%E6%B9%96%E5%A4%A7%E5%BE%AE%E7%94%9F%E6%B4%BB" class="work-img" alt="湖大微生活">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">校級公眾號「湖大微生活」內容運營</h3>
+              <p class="work-desc">深耕校園青年熱點與學生選題，提升公眾號原創內容質量與互動率。</p>
+            </div>
+            <span class="work-link-hint">開啟原文章連結 🔗</span>
+          </div>
+        </div>
+
+        <!-- 公眾號 3 -->
+        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/jiw364DUaZGywQAasbXj8g', '_blank')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">雇主品牌</span>
+            <img src="image_3e7f42.png" class="work-img" alt="華寶新能源招聘">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">華寶新能源招聘：校招專屬推文</h3>
+              <p class="work-desc">塑造活力年輕的雇主品牌形象，搭配禮盒視覺與高儀式感文案。</p>
+            </div>
+            <span class="work-link-hint">開啟原文章連結 🔗</span>
+          </div>
+        </div>
+
+        <!-- 公眾號 4 -->
+        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/awQCEzka7xVO2HTV9-uPXA?scene=1', '_blank')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">社團推文</span>
+            <img src="https://via.placeholder.com/400x250/70757a/ffffff?text=%E9%95%B7%E6%B2%99%E6%B8%AF%E4%BA%BA%E8%81%AF%E8%B0%BC%E6%9C%83" class="work-img" alt="長沙港人聯誼會">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">長沙市内地港人聯誼會活動推文</h3>
+              <p class="work-desc">負責交流活動宣傳、品牌視覺呈現與文化交流推廣內容。</p>
+            </div>
+            <span class="work-link-hint">開啟原文章連結 🔗</span>
+          </div>
+        </div>
+
+        <!-- 策劃案 1 -->
+        <div class="work-card" data-category="strategy" onclick="openModal('TTi X Dolby 影音體驗會策劃', '核心策略：\n1. 實車體驗與技術可視化聯動：第三代 UNI-V 車內設置場景化聽音區，聲音實驗室展示 AI 技術與硬件能力。\n2. 圈層滲透與行業信任共建：針對科技圈、音樂圈 KOL 分別定制技術解析與音質評測，提升傳播精準度。', 'image_3f02fc.png')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">策劃案</span>
+            <img src="image_3f02fc.png" class="work-img" alt="TTi X Dolby">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">TTi X Dolby 影音體驗會</h3>
+              <p class="work-desc">實車體驗、技術可視化與圈層滲透破圈營銷策略提案。</p>
+            </div>
+            <span class="work-link-hint">點擊查看提案亮點 ➔</span>
+          </div>
+        </div>
+
+        <!-- 策劃案 2 -->
+        <div class="work-card" data-category="strategy" onclick="openModal('華寶新能源 小紅書種草計劃策劃書', '策劃亮點：\n包含活動背景、線上/線下宣傳佈局、活動預算排期、KOL/KOC 內容主題方向、獎勵機制與費用預估全套種草方案。', 'image_3f037f.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">策劃案</span>
+            <img src="image_3f037f.jpg" class="work-img" alt="小紅書種草計劃">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">小紅書種草計劃策劃書</h3>
+              <p class="work-desc">華寶新能源品牌小紅書渠道專屬種草與達人合作全案。</p>
+            </div>
+            <span class="work-link-hint">點擊查看策劃大綱 ➔</span>
+          </div>
+        </div>
+
+        <!-- 策劃案 3 -->
+        <div class="work-card" data-category="strategy" onclick="openModal('Nyota 潮玩 IP 廣告文案創意解析', '核心創意：\n- 陪伴與情緒調節功能：以「小貓的抱抱」等造型切入，帶來心靈治癒。\n- 競品差異化：避開熱門動漫 IP 依賴，專注以細膩情感與生活美學打動消費者。', 'image_48e881.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">策劃案</span>
+            <img src="image_48e881.jpg" class="work-img" alt="Nyota 潮玩 IP">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">Nyota 潮玩 IP 創意提案</h3>
+              <p class="work-desc">定位生活美學與情感共鳴，打造治癒系潮玩品牌提案。</p>
+            </div>
+            <span class="work-link-hint">點擊查看核心解析 ➔</span>
+          </div>
+        </div>
+
+        <!-- 文案類 1 -->
+        <div class="work-card" data-category="copywriter" onclick="openModal('小紅書爆款民宿筆記 (1.6萬+ 瀏覽)', '長沙超級滿意的民宿種草圖文：\n單篇獲得 1.6萬+ 瀏覽、351 點贊、159 收藏。真實生活化語言切入，精準吸引旅遊與短途出行人群。', '8b155bf69d6a6c689e7e2e735add166e.jpg')">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">小紅書文案</span>
+            <img src="8b155bf69d6a6c689e7e2e735add166e.jpg" class="work-img" alt="民宿文案">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">長沙平價民宿爆款筆記</h3>
+              <p class="work-desc">單篇曝光 1.6W+，精準抓住用戶住宿痛點的種草文案。</p>
+            </div>
+            <span class="work-link-hint">點擊查看完整圖文 ➔</span>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2>實習與組織經歷 Experience</h2>
+  </div>
 
-        <!-- 華寶新能源 -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div>
-                    <span class="company">華寶新能源股份有限公司</span>
-                    <span class="role">｜ 雇主品牌運營實習生</span>
-                </div>
-                <span class="date">2025.09 - 2026.02</span>
-            </div>
-            <div class="timeline-body">
-                <ul>
-                    <li><strong>內容策劃：</strong> 打造並運營「微信公眾號 + 小紅書 + 脈脈」三位一體雇主品牌傳播矩陣，結合新能源行業特質產出 20+ 篇原創推文。</li>
-                    <li><strong>數據成效：</strong> 單篇平均閱讀量提升 40%，推動多渠道矩陣累計漲粉 5000+，顯著提升品牌內容觸達效率。</li>
-                    <li><strong>活動與跨部門：</strong> 深度參與校園招聘全渠道整合傳播策略，統籌策劃多場校園宣講會與企業 OPEN DAY。</li>
-                </ul>
-            </div>
-        </div>
+  <!-- MODAL 詳情彈窗 -->
+  <div id="workModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h3 class="modal-title" id="mTitle">作品標題</h3>
+      <img src="" id="mImg" class="modal-img" alt="">
+      <p class="modal-text" id="mText">作品詳細內容說明...</p>
+    </div>
+  </div>
 
-        <!-- 藍色光標 -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div>
-                    <span class="company">藍色光標數據科技股份有限公司</span>
-                    <span class="role">｜ 數位營銷實習生</span>
-                </div>
-                <span class="date">2025.07 - 2025.08</span>
-            </div>
-            <div class="timeline-body">
-                <ul>
-                    <li><strong>整合行銷：</strong> 全鏈路策劃 3 場品牌整合營銷活動，含項目策略、主題統籌與媒介排期，最終實現品牌全域曝光量提升 30%。</li>
-                    <li><strong>公關文案：</strong> 撰寫並發佈 5 篇權威媒體行業新聞稿（累計閱讀量突破 2 萬+）。</li>
-                    <li><strong>輿情賦能：</strong> 追蹤行業熱點輿情，輸出 10+ 篇熱點內容，推動品牌話題討論量增長 50%。</li>
-                </ul>
-            </div>
-        </div>
+  <script>
+    function filterWorks(category) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
 
-        <!-- 水羊集團 -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div>
-                    <span class="company">水羊集團股份有限公司</span>
-                    <span class="role">｜ 電商運營實習生</span>
-                </div>
-                <span class="date">2024.07 - 2024.09</span>
-            </div>
-            <div class="timeline-body">
-                <ul>
-                    <li><strong>店鋪運營：</strong> 維護 40+ SKU 上下架，優化 20+ 產品詳情頁，助力店鋪好評率提升至 90% 以上。</li>
-                    <li><strong>KOL 網紅對接：</strong> 對接 10+ 美妝垂類 KOL 產出種草素材，助力大促活動曝光量提升 15%。</li>
-                </ul>
-            </div>
-        </div>
+      const cards = document.querySelectorAll('.work-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
 
-        <!-- 湘港聯 -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div>
-                    <span class="company">湖南高校香港學生聯合會（湘港聯）</span>
-                    <span class="role">｜ 宣傳部部長</span>
-                </div>
-                <span class="date">2023.09 - 至今</span>
-            </div>
-            <div class="timeline-body">
-                <ul>
-                    <li><strong>帳號從0到1：</strong> 主導搭建官方公眾號，負責全流程選題、撰稿與排版，單篇最高閱讀量 2000+，實現粉絲數增長 30%。</li>
-                    <li><strong>跨校活動統籌：</strong> 統籌策劃 10 場跨校文化活動，聯動湖南 8 所高校資源，累計覆蓋參與人數超 1000 人。</li>
-                </ul>
-            </div>
-        </div>
+    function openModal(title, text, imgSrc) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mText').innerText = text;
+      document.getElementById('mImg').src = imgSrc;
+      document.getElementById('workModal').style.display = 'flex';
+    }
 
-    </section>
+    function closeModal() {
+      document.getElementById('workModal').style.display = 'none';
+    }
 
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2>精選作品集 Featured Works</h2>
-        <div class="portfolio-grid">
-
-            <!-- 作品 1 -->
-            <div class="polaroid-card">
-                <div class="polaroid-img" style="background:#fce4ec; display:flex; align-items:center; justify-center; text-align:center; padding:20px;">
-                    <div>
-                        <span style="font-size: 2rem;">📱</span>
-                        <p style="font-weight:bold; margin-top:5px;">126.4萬+ 瀏覽量</p>
-                    </div>
-                </div>
-                <div class="polaroid-title">爆款短影音與自媒體運營</div>
-                <div class="polaroid-desc">
-                    獨立運營小紅書與抖音帳號「玉米小滋」，台北旅遊單條短影音獲得 <strong>126.4萬次瀏覽、7.9萬點讚</strong>。擅長生活感與治癒系內容創作。
-                </div>
-            </div>
-
-            <!-- 作品 2 -->
-            <div class="polaroid-card">
-                <div class="polaroid-img" style="background:#e8eaf6; display:flex; align-items:center; justify-center; text-align:center; padding:20px;">
-                    <div>
-                        <span style="font-size: 2rem;">💡</span>
-                        <p style="font-weight:bold; margin-top:5px;">品牌整合營銷與企劃案</p>
-                    </div>
-                </div>
-                <div class="polaroid-title">品牌投放與活動企劃</div>
-                <div class="polaroid-desc">
-                    含《花兒與少年》品牌植入投放方案、TTi X Dolby 影音體驗會策劃案、Nyota 潮玩 IP 情感共鳴創意提案，展現完整商業行銷邏輯。
-                </div>
-            </div>
-
-            <!-- 作品 3 -->
-            <div class="polaroid-card">
-                <div class="polaroid-img" style="background:#e0f2f1; display:flex; align-items:center; justify-center; text-align:center; padding:20px;">
-                    <div>
-                        <span style="font-size: 2rem;">✍️</span>
-                        <p style="font-weight:bold; margin-top:5px;">公眾號與視覺排版</p>
-                    </div>
-                </div>
-                <div class="polaroid-title">新媒體文案與視覺設計</div>
-                <div class="polaroid-desc">
-                    熟練運用秀米、135編輯器，運營「湘港聯」與「一湖大微生活」。包含「公園20分鐘效應」、「微信步數分區」等高互動原創專題。
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Gigi Qin (秦翠孜) Portfolio. Built with HTML/CSS and GitHub Pages.</p>
-    </footer>
-
-</div>
-
+    window.onclick = function(event) {
+      const modal = document.getElementById('workModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
