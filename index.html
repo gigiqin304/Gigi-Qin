@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秦翠孜 Gigi | 個人作品集 Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f7f6f2;
+            --card-bg: #ffffff;
+            --text-main: #2b2b2b;
+            --text-muted: #666666;
+            --accent-pink: #e88d9d;
+            --accent-blue: #7ca5b8;
+            --shadow: 0 10px 25px rgba(0,0,0,0.05);
+            --polaroid-shadow: 0 12px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 10px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            border: 1px solid #eaeaea;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: #f0ede6;
+            color: #555;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #f0ede6;
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2ded5;
+        }
+
+        /* Section Global */
+        section {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border: 1px solid #eaeaea;
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-pink);
+            border-radius: 2px;
+        }
+
+        /* About Me */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skill-group {
+            margin-top: 15px;
+        }
+
+        .skill-group h4 {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            border: 1px solid #ddd;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            background: #fafafa;
+        }
+
+        /* Experience Timeline */
+        .timeline-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 2px solid #e2ded5;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-pink);
+            border-radius: 50%;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .role {
+            color: var(--accent-blue);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-body {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .timeline-body ul {
+            padding-left: 18px;
+        }
+
+        .timeline-body li {
+            margin-bottom: 5px;
+        }
+
+        /* Portfolio Grid (Polaroid Style) */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .polaroid-card {
+            background: #fff;
+            padding: 15px 15px 20px 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: var(--polaroid-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .polaroid-card:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.12);
+        }
+
+        .polaroid-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-bottom: 12px;
+        }
+
+        .polaroid-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .polaroid-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header Section -->
+    <header>
+        <h1>秦翠孜 Gigi</h1>
+        <div class="subtitle">湖南大學 廣告學 | 品牌行銷與整合傳播專員</div>
+        
+        <div class="tags">
+            <span class="tag">🇭🇰 香港永久居民</span>
+            <span class="tag">💡 藍色光標 & 華寶新能源實習</span>
+            <span class="tag">🔥 120萬+ 爆款自媒體內容</span>
+            <span class="tag">🎯 整合行銷 (IMC)</span>
+        </div>
+
+        <div class="contact-buttons">
+            <a href="mailto:2921837251@qq.com" class="btn btn-primary">✉️ 電子郵件聯絡</a>
+            <a href="tel:15812567773" class="btn btn-secondary">📞 15812567773</a>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>關於我 About Me</h2>
+        <div class="about-content">
+            <div>
+                <p>你好！我是秦翠孜（Gigi），畢業於湖南大學廣告學專業。我具備系統化的營銷策劃、品牌傳播與內容運營能力，對用戶需求與市場趨勢有敏銳的洞察力。</p>
+                <p style="margin-top: 10px;">性格「可 i 可 e」，工作嚴謹負責且具備極強的團隊協作力與跨領域適應力。平時熱愛拍照、手作與運動，敢於探索並將生活靈感融入品牌企劃中。</p>
+            </div>
+            <div>
+                <div class="skill-group">
+                    <h4>核心技能</h4>
+                    <div class="skill-badges">
+                        <span class="badge">整合行銷企劃</span>
+                        <span class="badge">雇主品牌運營</span>
+                        <span class="badge">自媒體全盤運營</span>
+                        <span class="badge">新聞稿撰寫</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>軟體與工具</h4>
+                    <div class="skill-badges">
+                        <span class="badge">Photoshop</span>
+                        <span class="badge">Canva</span>
+                        <span class="badge">秀米 / 135</span>
+                        <span class="badge">Excel / PPT</span>
+                        <span class="badge">CET-6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>實習與組織經歷 Experience</h2>
+
+        <!-- 華寶新能源 -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="company">華寶新能源股份有限公司</span>
+                    <span class="role">｜ 雇主品牌運營實習生</span>
+                </div>
+                <span class="date">2025.09 - 2026.02</span>
+            </div>
+            <div class="timeline-body">
+                <ul>
+                    <li><strong>內容策劃：</strong> 打造並運營「微信公眾號 + 小紅書 + 脈脈」三位一體雇主品牌傳播矩陣，結合新能源行業特質產出 20+ 篇原創推文。</li>
+                    <li><strong>數據成效：</strong> 單篇平均閱讀量提升 40%，推動多渠道矩陣累計漲粉 5000+，顯著提升品牌內容觸達效率。</li>
+                    <li><strong>活動與跨部門：</strong> 深度參與校園招聘全渠道整合傳播策略，統籌策劃多場校園宣講會與企業 OPEN DAY。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 藍色光標 -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="company">藍色光標數據科技股份有限公司</span>
+                    <span class="role">｜ 數位營銷實習生</span>
+                </div>
+                <span class="date">2025.07 - 2025.08</span>
+            </div>
+            <div class="timeline-body">
+                <ul>
+                    <li><strong>整合行銷：</strong> 全鏈路策劃 3 場品牌整合營銷活動，含項目策略、主題統籌與媒介排期，最終實現品牌全域曝光量提升 30%。</li>
+                    <li><strong>公關文案：</strong> 撰寫並發佈 5 篇權威媒體行業新聞稿（累計閱讀量突破 2 萬+）。</li>
+                    <li><strong>輿情賦能：</strong> 追蹤行業熱點輿情，輸出 10+ 篇熱點內容，推動品牌話題討論量增長 50%。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 水羊集團 -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="company">水羊集團股份有限公司</span>
+                    <span class="role">｜ 電商運營實習生</span>
+                </div>
+                <span class="date">2024.07 - 2024.09</span>
+            </div>
+            <div class="timeline-body">
+                <ul>
+                    <li><strong>店鋪運營：</strong> 維護 40+ SKU 上下架，優化 20+ 產品詳情頁，助力店鋪好評率提升至 90% 以上。</li>
+                    <li><strong>KOL 網紅對接：</strong> 對接 10+ 美妝垂類 KOL 產出種草素材，助力大促活動曝光量提升 15%。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 湘港聯 -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="company">湖南高校香港學生聯合會（湘港聯）</span>
+                    <span class="role">｜ 宣傳部部長</span>
+                </div>
+                <span class="date">2023.09 - 至今</span>
+            </div>
+            <div class="timeline-body">
+                <ul>
+                    <li><strong>帳號從0到1：</strong> 主導搭建官方公眾號，負責全流程選題、撰稿與排版，單篇最高閱讀量 2000+，實現粉絲數增長 30%。</li>
+                    <li><strong>跨校活動統籌：</strong> 統籌策劃 10 場跨校文化活動，聯動湖南 8 所高校資源，累計覆蓋參與人數超 1000 人。</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>精選作品集 Featured Works</h2>
+        <div class="portfolio-grid">
+
+            <!-- 作品 1 -->
+            <div class="polaroid-card">
+                <div class="polaroid-img" style="background:#fce4ec; display:flex; align-items:center; justify-center; text-align:center; padding:20px;">
+                    <div>
+                        <span style="font-size: 2rem;">📱</span>
+                        <p style="font-weight:bold; margin-top:5px;">126.4萬+ 瀏覽量</p>
+                    </div>
+                </div>
+                <div class="polaroid-title">爆款短影音與自媒體運營</div>
+                <div class="polaroid-desc">
+                    獨立運營小紅書與抖音帳號「玉米小滋」，台北旅遊單條短影音獲得 <strong>126.4萬次瀏覽、7.9萬點讚</strong>。擅長生活感與治癒系內容創作。
+                </div>
+            </div>
+
+            <!-- 作品 2 -->
+            <div class="polaroid-card">
+                <div class="polaroid-img" style="background:#e8eaf6; display:flex; align-items:center; justify-center; text-align:center; padding:20px;">
+                    <div>
+                        <span style="font-size: 2rem;">💡</span>
+                        <p style="font-weight:bold; margin-top:5px;">品牌整合營銷與企劃案</p>
+                    </div>
+                </div>
+                <div class="polaroid-title">品牌投放與活動企劃</div>
+                <div class="polaroid-desc">
+                    含《花兒與少年》品牌植入投放方案、TTi X Dolby 影音體驗會策劃案、Nyota 潮玩 IP 情感共鳴創意提案，展現完整商業行銷邏輯。
+                </div>
+            </div>
+
+            <!-- 作品 3 -->
+            <div class="polaroid-card">
+                <div class="polaroid-img" style="background:#e0f2f1; display:flex; align-items:center; justify-center; text-align:center; padding:20px;">
+                    <div>
+                        <span style="font-size: 2rem;">✍️</span>
+                        <p style="font-weight:bold; margin-top:5px;">公眾號與視覺排版</p>
+                    </div>
+                </div>
+                <div class="polaroid-title">新媒體文案與視覺設計</div>
+                <div class="polaroid-desc">
+                    熟練運用秀米、135編輯器，運營「湘港聯」與「一湖大微生活」。包含「公園20分鐘效應」、「微信步數分區」等高互動原創專題。
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Gigi Qin (秦翠孜) Portfolio. Built with HTML/CSS and GitHub Pages.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
