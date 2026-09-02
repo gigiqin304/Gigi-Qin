@@ -340,12 +340,15 @@
       overflow: hidden;
       border: 1px solid var(--border-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
       display: flex;
       flex-direction: column;
     }
 
-    .work-card:hover {
+    .work-card.clickable {
+      cursor: pointer;
+    }
+
+    .work-card.clickable:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.06);
     }
@@ -364,7 +367,7 @@
       transition: transform 0.5s ease;
     }
 
-    .work-card:hover .work-img {
+    .work-card.clickable:hover .work-img {
       transform: scale(1.05);
     }
 
@@ -399,7 +402,7 @@
     .work-desc {
       font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .work-link-hint {
@@ -515,7 +518,7 @@
           <span class="tag accent">整合行銷企劃</span>
           <span class="tag accent">雇主品牌運營</span>
           <span class="tag accent">自媒體全盤運營</span>
-          <span class="tag accent">活動與現場攝影</span>
+          <span class="tag accent">新聞稿撰寫</span>
         </div>
 
         <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:8px; margin-top:15px;">軟件與工具</p>
@@ -556,7 +559,7 @@
           <div class="exp-company">湖南高校香港學生聯合會 (2023.09 - 至今)</div>
           <ul class="exp-highlights">
             <li>主導搭建「湘港聯」官方帳號，累計用戶 1000+，單篇最高閱讀 2000+</li>
-            <li>統籌 10 場跨校文化活動（覆蓋 1000+ 人），負責活動現場攝影與後續報導</li>
+            <li>統籌 10 場跨校文化活動（覆蓋 1000+ 人），負責活動宣傳與採訪撰稿</li>
           </ul>
         </div>
       </div>
@@ -593,107 +596,59 @@
       <!-- TAB 分類按鈕 -->
       <div class="tab-menu">
         <button class="tab-btn active" onclick="filterWorks('all')">全部作品</button>
+        <button class="tab-btn" onclick="filterWorks('redbook')">小紅書運營</button>
         <button class="tab-btn" onclick="filterWorks('media')">公眾號運營</button>
         <button class="tab-btn" onclick="filterWorks('strategy')">策劃案類</button>
         <button class="tab-btn" onclick="filterWorks('copywriter')">文案與新聞稿</button>
-        <button class="tab-btn" onclick="filterWorks('photography')">📷 攝影作品</button>
       </div>
 
       <!-- 作品網格卡片 -->
       <div class="works-grid">
 
-        <!-- 攝影作品 1 -->
-        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：航天知識專題講座', '拍攝視角重點：\n捕捉講者專注神態與後方 PPT 核心主題，畫面結構嚴謹，適合用於官方新聞稿與活動回顧推文。', 'image_497784.jpg')">
+        <!-- 小紅書運營 1 (企業官號) -->
+        <div class="work-card" data-category="redbook">
           <div class="work-img-wrapper">
-            <span class="work-category-badge">活動紀實攝影</span>
-            <img src="image_497784.jpg" class="work-img" alt="航天知識講座">
+            <span class="work-category-badge">小紅書官號運營</span>
+            <img src="屏幕截图 2026-05-02 215403.png" class="work-img" alt="華寶新能源招聘小紅書主頁">
           </div>
           <div class="work-body">
             <div>
-              <h3 class="work-title">活動紀實：航天知識專題講座</h3>
-              <p class="work-desc">精準抓拍主講人專注神情與背景核心視覺，傳達權威與學術氛圍。</p>
+              <h3 class="work-title">華寶新能源招聘（官方小紅書）</h3>
+              <p class="work-desc">負責企業招聘官號運營，包含社招/校招/實習崗位發佈、求職乾貨及工作日常分享，累積 1.2W+ 獲贊與收藏。</p>
             </div>
-            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
           </div>
         </div>
 
-        <!-- 攝影作品 2 -->
-        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：草坪分享會互動瞬間', '拍攝視角重點：\n自然光線下捕捉學生認真聆聽與舉手互動的生動瞬間，充滿青春校園氛圍。', 'image_4977a7.jpg')">
+        <!-- 小紅書運營 2 (管培生爆款圖文) -->
+        <div class="work-card" data-category="redbook">
           <div class="work-img-wrapper">
-            <span class="work-category-badge">活動紀實攝影</span>
-            <img src="image_4977a7.jpg" class="work-img" alt="草坪分享會">
+            <span class="work-category-badge">小紅書圖文</span>
+            <img src="屏幕截图 2026-05-02 215446.png" class="work-img" alt="綠能星計劃管培生揭秘">
           </div>
           <div class="work-body">
             <div>
-              <h3 class="work-title">活動紀實：草坪分享會互動瞬間</h3>
-              <p class="work-desc">利用自然光與全景構圖，記錄戶外分享會的熱烈互動與溫馨氛圍。</p>
+              <h3 class="work-title">【華寶新能源】綠能星計劃管培生全揭秘</h3>
+              <p class="work-desc">針對校招痛點打造高互動圖文，解密高薪待遇與工作體驗，有效引導評論區高質感互動。</p>
             </div>
-            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
           </div>
         </div>
 
-        <!-- 攝影作品 3 -->
-        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：趣味競技破冰遊戲', '拍攝視角重點：\n高速快門捕捉動態瞬間與參與者的投入表情，展現社團活動的活力與樂趣。', 'image_4977e6.jpg')">
+        <!-- 小紅書運營 3 (個人 IP / 3CE美妝) -->
+        <div class="work-card" data-category="redbook">
           <div class="work-img-wrapper">
-            <span class="work-category-badge">活動紀實攝影</span>
-            <img src="image_4977e6.jpg" class="work-img" alt="趣味競技遊戲">
+            <span class="work-category-badge">美妝種草 / 個人IP</span>
+            <img src="屏幕截图 2026-05-02 215501.png" class="work-img" alt="3CE眼影盤開箱">
           </div>
           <div class="work-body">
             <div>
-              <h3 class="work-title">活動紀實：趣味競技破冰遊戲</h3>
-              <p class="work-desc">定格動態遊戲競技瞬間，捕捉 participants 的專注與歡樂情緒。</p>
+              <h3 class="work-title">【玉米小滋】3CE 眼影盤雙11開箱種草</h3>
+              <p class="work-desc">精緻靜物構圖與真實試用心得，成功帶動評論區求購討論與高互動。</p>
             </div>
-            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
-          </div>
-        </div>
-
-        <!-- 攝影作品 4 -->
-        <div class="work-card" data-category="photography" onclick="openModal('活動紀實：草坪大合影與文創紀念', '拍攝視角重點：\n層次豐富的人像群像拍攝，展現團體凝聚力與活動文創禮品的宣傳效益。', 'image_497803.jpg')">
-          <div class="work-img-wrapper">
-            <span class="work-category-badge">活動紀實攝影</span>
-            <img src="image_497803.jpg" class="work-img" alt="草坪大合影">
-          </div>
-          <div class="work-body">
-            <div>
-              <h3 class="work-title">活動紀實：草坪大合影與文創紀念</h3>
-              <p class="work-desc">前景與中景的錯落構圖，定格青春合影與活動周邊禮品的留念 moment。</p>
-            </div>
-            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
-          </div>
-        </div>
-
-        <!-- 攝影作品 5 (日常) -->
-        <div class="work-card" data-category="photography" onclick="openModal('日常攝影：城市天際線與現代建築三部曲', '視覺視角：\n三段式縱向構圖，對比歷史復古建築、現代幾何結構線條與央視大樓夜景天際線，展現強烈的都市空間張力。', 'image_497b25.jpg')">
-          <div class="work-img-wrapper">
-            <span class="work-category-badge">日常視覺攝影</span>
-            <img src="image_497b25.jpg" class="work-img" alt="城市天際線">
-          </div>
-          <div class="work-body">
-            <div>
-              <h3 class="work-title">日常攝影：城市線條與現代地標</h3>
-              <p class="work-desc">捕捉現代建築幾何幾何美感、黃昏與夜間都市地標的光影變化。</p>
-            </div>
-            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
-          </div>
-        </div>
-
-        <!-- 攝影作品 6 (日常) -->
-        <div class="work-card" data-category="photography" onclick="openModal('日常攝影：古典建築與四季禪意三部曲', '視覺視角：\n聚焦紅牆綠意、金頂夜景與古建院落落花，感受古典建築的寧靜、季節流轉與空間美學。', 'image_497b45.jpg')">
-          <div class="work-img-wrapper">
-            <span class="work-category-badge">日常視覺攝影</span>
-            <img src="image_497b45.jpg" class="work-img" alt="古典建築與四季">
-          </div>
-          <div class="work-body">
-            <div>
-              <h3 class="work-title">日常攝影：古建意境與光影詩意</h3>
-              <p class="work-desc">透過紅牆、金頂與院落光影，表達古典空間與自然的靜謐審美。</p>
-            </div>
-            <span class="work-link-hint">點擊查看大圖與說明 ➔</span>
           </div>
         </div>
 
         <!-- 公眾號 1 -->
-        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/UVpHyNLn21lWf-w69gNCwA', '_blank')">
+        <div class="work-card clickable" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/UVpHyNLn21lWf-w69gNCwA', '_blank')">
           <div class="work-img-wrapper">
             <span class="work-category-badge">公眾號運營</span>
             <img src="https://via.placeholder.com/400x250/4a5d6e/ffffff?text=%E6%B9%9B%E6%B8%AF%E8%81%AF+%E8%93%AE%E5%BB%BA" class="work-img" alt="湘港聯">
@@ -708,7 +663,7 @@
         </div>
 
         <!-- 公眾號 2 -->
-        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/uZxN_5ML1lyuBbF9bFbdCw', '_blank')">
+        <div class="work-card clickable" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/uZxN_5ML1lyuBbF9bFbdCw', '_blank')">
           <div class="work-img-wrapper">
             <span class="work-category-badge">校級公眾號</span>
             <img src="https://via.placeholder.com/400x250/d98a6c/ffffff?text=%E6%B9%96%E5%A4%A7%E5%BE%AE%E7%94%9F%E6%B4%BB" class="work-img" alt="湖大微生活">
@@ -723,7 +678,7 @@
         </div>
 
         <!-- 公眾號 3 -->
-        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/jiw364DUaZGywQAasbXj8g', '_blank')">
+        <div class="work-card clickable" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/jiw364DUaZGywQAasbXj8g', '_blank')">
           <div class="work-img-wrapper">
             <span class="work-category-badge">雇主品牌</span>
             <img src="image_3e7f42.png" class="work-img" alt="華寶新能源招聘">
@@ -738,7 +693,7 @@
         </div>
 
         <!-- 公眾號 4 -->
-        <div class="work-card" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/awQCEzka7xVO2HTV9-uPXA?scene=1', '_blank')">
+        <div class="work-card clickable" data-category="media" onclick="window.open('https://mp.weixin.qq.com/s/awQCEzka7xVO2HTV9-uPXA?scene=1', '_blank')">
           <div class="work-img-wrapper">
             <span class="work-category-badge">社團推文</span>
             <img src="https://via.placeholder.com/400x250/70757a/ffffff?text=%E9%95%B7%E6%B2%99%E6%B8%AF%E4%BA%BA%E8%81%AF%E8%B0%BC%E6%9C%83" class="work-img" alt="長沙港人聯誼會">
@@ -753,7 +708,7 @@
         </div>
 
         <!-- 策劃案 1 -->
-        <div class="work-card" data-category="strategy" onclick="openModal('TTi X Dolby 影音體驗會策劃', '核心策略：\n1. 實車體驗與技術可視化聯動：第三代 UNI-V 車內設置場景化聽音區，聲音實驗室展示 AI 技術與硬件能力。\n2. 圈層滲透與行業信任共建：針對科技圈、音樂圈 KOL 分別定制技術解析與音質評測，提升傳播精準度。', 'image_3f02fc.png')">
+        <div class="work-card clickable" data-category="strategy" onclick="openModal('TTi X Dolby 影音體驗會策劃', '核心策略：\n1. 實車體驗與技術可視化聯動：第三代 UNI-V 車內設置場景化聽音區，聲音實驗室展示 AI 技術與硬件能力。\n2. 圈層滲透與行業信任共建：針對科技圈、音樂圈 KOL 分別定制技術解析與音質評測，提升傳播精準度。', 'image_3f02fc.png')">
           <div class="work-img-wrapper">
             <span class="work-category-badge">策劃案</span>
             <img src="image_3f02fc.png" class="work-img" alt="TTi X Dolby">
@@ -768,7 +723,7 @@
         </div>
 
         <!-- 策劃案 2 -->
-        <div class="work-card" data-category="strategy" onclick="openModal('華寶新能源 小紅書種草計劃策劃書', '策劃亮點：\n包含活動背景、線上/線下宣傳佈局、活動預算排期、KOL/KOC 內容主題方向、獎勵機制與費用預估全套種草方案。', 'image_3f037f.jpg')">
+        <div class="work-card clickable" data-category="strategy" onclick="openModal('華寶新能源 小紅書種草計劃策劃書', '策劃亮點：\n包含活動背景、線上/線下宣傳佈局、活動預算排期、KOL/KOC 內容主題方向、獎勵機制與費用預估全套種草方案。', 'image_3f037f.jpg')">
           <div class="work-img-wrapper">
             <span class="work-category-badge">策劃案</span>
             <img src="image_3f037f.jpg" class="work-img" alt="小紅書種草計劃">
@@ -783,7 +738,7 @@
         </div>
 
         <!-- 策劃案 3 -->
-        <div class="work-card" data-category="strategy" onclick="openModal('Nyota 潮玩 IP 廣告文案創意解析', '核心創意：\n- 陪伴與情緒調節功能：以「小貓的抱抱」等造型切入，帶來心靈治癒。\n- 競品差異化：避開熱門動漫 IP 依賴，專注以細膩情感與生活美學打動消費者。', 'image_48e881.jpg')">
+        <div class="work-card clickable" data-category="strategy" onclick="openModal('Nyota 潮玩 IP 廣告文案創意解析', '核心創意：\n- 陪伴與情緒調節功能：以「小貓的抱抱」等造型切入，帶來心靈治癒。\n- 競品差異化：避開熱門動漫 IP 依賴，專注以細膩情感與生活美學打動消費者。', 'image_48e881.jpg')">
           <div class="work-img-wrapper">
             <span class="work-category-badge">策劃案</span>
             <img src="image_48e881.jpg" class="work-img" alt="Nyota 潮玩 IP">
@@ -797,18 +752,31 @@
           </div>
         </div>
 
-        <!-- 文案類 1 -->
-        <div class="work-card" data-category="copywriter" onclick="openModal('小紅書爆款民宿筆記 (1.6萬+ 瀏覽)', '長沙超級滿意的民宿種草圖文：\n單篇獲得 1.6萬+ 瀏覽、351 點贊、159 收藏。真實生活化語言切入，精準吸引旅遊與短途出行人群。', '8b155bf69d6a6c689e7e2e735add166e.jpg')">
+        <!-- 文案與新聞稿 1 (新聞稿) -->
+        <div class="work-card" data-category="copywriter">
           <div class="work-img-wrapper">
-            <span class="work-category-badge">小紅書文案</span>
-            <img src="屏幕截图 2026-08-26 180333.png" class="work-img" alt="民宿文案">
+            <span class="work-category-badge">新聞稿</span>
+            <img src="image_4981fe.png" class="work-img" alt="梧桐科技新聞稿">
           </div>
           <div class="work-body">
             <div>
-              <h3 class="work-title">長沙平價民宿爆款筆記</h3>
-              <p class="work-desc">單篇曝光 1.6W+，精準抓住用戶住宿痛點的種草文案。</p>
+              <h3 class="work-title">梧桐科技參加 2025 中國汽車論壇新聞稿</h3>
+              <p class="work-desc">撰寫品牌出線與論壇演講公關稿件，闡述 AI 驅動智能座艙創新實踐與三層架構演進成果。</p>
             </div>
-            <span class="work-link-hint">點擊查看完整圖文 ➔</span>
+          </div>
+        </div>
+
+        <!-- 文案與新聞稿 2 (小紅書文案) -->
+        <div class="work-card" data-category="copywriter">
+          <div class="work-img-wrapper">
+            <span class="work-category-badge">爆款文案</span>
+            <img src="8b155bf69d6a6c689e7e2e735add166e.jpg" class="work-img" alt="民宿文案">
+          </div>
+          <div class="work-body">
+            <div>
+              <h3 class="work-title">長沙平價民宿爆款筆記（1.6W+ 瀏覽）</h3>
+              <p class="work-desc">以真實生活化視角切入，精準觸達旅遊與短途出行人群，獲得 350+ 點贊與 150+ 收藏。</p>
+            </div>
           </div>
         </div>
 
@@ -817,7 +785,7 @@
 
   </div>
 
-  <!-- MODAL 詳情彈窗 -->
+  <!-- MODAL 詳情彈窗（僅用於策劃案類） -->
   <div id="workModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
